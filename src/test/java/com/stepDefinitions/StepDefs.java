@@ -2,6 +2,7 @@ package com.stepDefinitions;
 
 import com.charan.Base;
 import com.pageObjects.Facebook;
+import com.pageObjects.Gmail;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,6 +10,7 @@ import cucumber.api.java.en.When;
 
 public class StepDefs extends Base{
 	 static Facebook f = new Facebook();
+	 static Gmail g = new Gmail();
 	@Given("user is on facebook page")
 	public void facebookLogin() {
 		openURL("https://www.facebook.com");
@@ -30,6 +32,27 @@ public class StepDefs extends Base{
 	    // Write code here that turns the phrase above into concrete actions
 		launchBrowser(string);
 	}
+	@Given("User is on Gmail page")
+	public void user_is_on_Gmail_page() {
+	    try {
+	    	openURL("https://www.gmail.com");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
+	@When("Log into Gmail")
+	public void log_into_Gmail() {
+	    try {
+	    	g.gmaillogin();
+	    } catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@When("Access the first mail")
+	public void access_the_first_mail() {
+	 
+	}
 
 	}
